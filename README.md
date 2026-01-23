@@ -1,0 +1,1 @@
+# geometria-computacional-2026A-
