@@ -1,8 +1,13 @@
+import garciadelcastillo.dashedlines.*;
+
 PVector u, v;
+DashedLines dash;
+
 void setup () {
   size (500, 500);
-  u = new PVector (30, 0);
-  v = new PVector (20, 30);
+  dash = new DashedLines(this);  
+  u = new PVector (150, 50);
+  v = new PVector (100, 200);
 }
 
 void drawVector(PVector v) {
@@ -29,6 +34,10 @@ void drawGrid() {
   }
 }
 
+void drawVector (PVector a, PVector b) {
+  dash.line(a.x, a.y, b.x, b.y);
+}
+
 void draw () {
   background(200);
   PVector w = PVector.add(u, v);
@@ -36,6 +45,8 @@ void draw () {
   drawVector(u, 0, 0, 255);
   drawVector(v, 255, 0, 0);
   drawVector(w);
+  drawVector(u, w);
+  drawVector(v, w);
   
   println(degrees(w.heading()));
 }
