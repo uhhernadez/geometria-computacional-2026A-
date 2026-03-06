@@ -20,12 +20,29 @@ class DrSimi {
   }
 
   void Dibujar () {
+    float fs = 1.5;
     float s = millis()/1000.0;
+ 
     pushMatrix();
+      pushMatrix();
+        float fp = 20 * cos(2*PI*fs*s);
+        translate(45,60+fp);
+        //rotate(radians(fp));
+        pierna_izq.Dibujar();
+      popMatrix();
+      
+      pushMatrix();
+        float fd = 20 * sin(2*PI*fs*s);
+        translate(-45,60+fd);
+        //rotate(radians(fp));
+        pierna_der.Dibujar();
+      popMatrix();
+      
+      
       tronco.Dibujar();
       pushMatrix();
         translate(0, -80);
-        float f = 30 * sin (2*PI*s);
+        float f = 30 * sin (2*PI*fs*s);
         rotate(radians(f));
         cabeza.Dibujar();
       popMatrix();
@@ -52,24 +69,11 @@ class DrSimi {
         popMatrix();
       popMatrix();  
         
-      fill(255, 0, 0);
-      
-      
-      circle(0,0, 10);
+      //fill(255, 0, 0);
+      //circle(0,0, 10);
     popMatrix();
     
     
-    
-    
-    
-  //mano_der.Dibujar();
-  //mano_izq.Dibujar();
-  //cabeza.Dibujar();
-  //brazo_izq.Dibujar();
-  //brazo_der.Dibujar();
-  //pierna_izq.Dibujar();
-  //pierna_der.Dibujar ();
-  //
   
   }
 

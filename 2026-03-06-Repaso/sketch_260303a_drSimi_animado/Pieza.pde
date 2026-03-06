@@ -12,7 +12,7 @@ class Pieza {
       translate(offset.x, offset.y);
       image(img, 0, 0);
     popMatrix();
-    fill(255,0,0);
-    circle(0, 0, 10);
+    //fill(255,0,0);
+    //circle(0, 0, 10);
   }
 }
