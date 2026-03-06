@@ -16,11 +16,11 @@ Piénsalo como un solo "ladrillo" o "azulejo" en un mosaico.
 
 Se trata de crear un patrón repetitivo usando un sistema de rejilla.
 
-1.  **Define la Rejilla:** Decide cuántas filas y columnas quieres. Calcula el
+1.  **Define la rejilla:** Decide cuántas filas y columnas quieres. Calcula el
     ancho y el alto de cada celda de la rejilla (`anchoCelda = width /
     numColumnas`, `altoCelda = height / numFilas`).
 
-2.  **Usa Bucles Anidados:** Un bucle `for` para las columnas dentro de un bucle
+2.  **Usa bucles anidados:** Un bucle `for` para las columnas dentro de un bucle
     `for` para las filas es la forma estándar de recorrer cada celda.
     ```java
     for (int i = 0; i < numColumnas; i++) {
@@ -30,7 +30,7 @@ Se trata de crear un patrón repetitivo usando un sistema de rejilla.
     }
     ```
 
-3.  **Traslada al Centro de la Celda:** Dentro de los bucles, antes de dibujar
+3.  **Traslada al centro de la celda:** Dentro de los bucles, antes de dibujar
     tu motivo, usa `pushMatrix()` para guardar el estado actual. Luego, usa
     `translate()` para mover el origen (0,0) al centro de la celda actual. Esto
     hace que dibujar sea mucho más fácil.
@@ -43,7 +43,7 @@ Se trata de crear un patrón repetitivo usando un sistema de rejilla.
     popMatrix();
     ```
 
-4.  **Dibuja el Motivo:** Ahora que estás en el centro de la celda, puedes
+4.  **Dibuja el motivo:** Ahora que estás en el centro de la celda, puedes
     dibujar tu forma. Puedes añadir rotaciones o escalados que sean únicos para
     cada celda usando las variables de los bucles `i` y `j`.
 
@@ -53,16 +53,16 @@ Se trata de crear un patrón repetitivo usando un sistema de rejilla.
 
 Implica organizar tu motivo en un círculo alrededor de un punto central.
 
-1.  **Define las Repeticiones:** Decide cuántas veces quieres repetir el motivo
+1.  **Define las repeticiones:** Decide cuántas veces quieres repetir el motivo
     en el círculo (ej. `int numSegmentos = 12;`).
 
-2.  **Calcula el Ángulo:** El ángulo total de un círculo es de `360` grados o
+2.  **Calcula el ángulo:** El ángulo total de un círculo es de `360` grados o
     `TWO_PI` radianes. El ángulo para cada segmento es `float anguloPaso =
     TWO_PI / numSegmentos;`.
 
-3.  **Usa un Bucle Único:** Haz un bucle de `0` a `numSegmentos`.
+3.  **Usa un bucle único:** Haz un bucle de `0` a `numSegmentos`.
 
-4.  **Traslada y Rota:**
+4.  **Traslada y rota:**
     *   Primero, haz `translate()` al centro del lienzo (`width/2`, `height/2`).
         Este será el punto de pivote para tu mandala.
     *   Dentro del bucle, rota (`rotate()`) por `i * anguloPaso`. Esto gira el
@@ -75,7 +75,7 @@ Implica organizar tu motivo en un círculo alrededor de un punto central.
 
 ---
 
-### Creando un Esquema de Color Degradado
+### Creando un esquema de color degradado
 
 Para el mandala, un degradado de color de un lado a otro puede crear un efecto
 hermoso. La clave es la función `lerpColor()` de Processing, que interpola entre
@@ -88,9 +88,9 @@ dos colores.
 *   `cantidad`: Un `float` de `0.0` (devuelve `color1`) a `1.0` (devuelve
     `color2`). Un valor de `0.5` sería una mezcla perfecta de los dos.
 
-**Implementación para el Mandala:**
+**Implementación para el mandala:**
 
-1.  **Define tu Paleta:** En la parte superior de tu sketch, define tus colores
+1.  **Define tu paleta:** En la parte superior de tu sketch, define tus colores
     de inicio y fin.
     ```java
     color colorInicio;
@@ -104,7 +104,7 @@ dos colores.
     }
     ```
 
-2.  **Calcula la Cantidad de Interpolación en el Bucle:** Dentro del bucle `for`
+2.  **Calcula la cantidad de interpolación en el bucle:** Dentro del bucle `for`
     de tu mandala, necesitas generar el valor de `cantidad`. Puedes derivarlo
     directamente del contador del bucle.
     ```java
