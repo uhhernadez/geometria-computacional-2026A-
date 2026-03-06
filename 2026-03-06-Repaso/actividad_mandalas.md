@@ -1,4 +1,4 @@
-# Elaboración de la Actividad: Mosaicos y Mandalas
+# Elaboración de la actividad: mosaicos y mandalas
 
 El objetivo es usar un motivo geométrico simple —como la clase `Cuadrado` que
 has usado antes, o incluso solo una combinación de `rect()` y `ellipse()`— y
