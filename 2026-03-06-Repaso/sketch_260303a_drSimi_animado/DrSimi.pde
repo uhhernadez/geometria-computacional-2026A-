@@ -32,16 +32,24 @@ class DrSimi {
       
       pushMatrix();
         translate(64,-50);
+        rotate(radians(f));
         brazo_izq.Dibujar();
         pushMatrix();
-          translate(61, -50);
+          translate(41, -60);
+          rotate(radians(-2*f));
           mano_izq.Dibujar();
         popMatrix();
       popMatrix();
         
       pushMatrix();
         translate(-65,-50);
+        rotate(radians(f));
         brazo_der.Dibujar();
+        pushMatrix();
+          translate(-41, -60);
+          rotate(radians(-2*f));
+          mano_der.Dibujar();
+        popMatrix();
       popMatrix();  
         
       fill(255, 0, 0);
