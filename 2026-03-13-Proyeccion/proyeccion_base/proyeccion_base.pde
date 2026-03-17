@@ -73,3 +73,14 @@ float [][] perspectiveM (float d) {
   };
   return P;
 }
+
+void dibujarCubo (PVector [] v) {
+  dibujarLinea(v[0],v[1]);
+  dibujarLinea(v[1],v[2]);
+  dibujarLinea(v[2],v[3]);
+  dibujarLinea(v[3],v[0]);
+}
+
+void dibujarLinea (PVector a, PVector b) {
+  line (a.x, a.y, b.x, b.y);
+}
