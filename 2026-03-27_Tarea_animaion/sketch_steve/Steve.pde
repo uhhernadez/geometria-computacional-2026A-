@@ -5,26 +5,31 @@ class Steve {
   Pieza cabeza;
   Pieza brazo_izq;
   Pieza brazo_der;
-
-  Steve () {
+  PVector posicion;
+  PVector rotacion;
+  Steve (float x, float y, float z, float theta) {
     pierna_izq = new Pieza(0,0,-15, 10, 10, 30);
     pierna_der= new Pieza(0,0,-15, 10, 10, 30);
     tronco = new Pieza(0, 0, 0, 20, 10, 30);
     cabeza = new Pieza (0, 0, 0, 20, 20 ,20);
     brazo_izq = new Pieza (0, 0, -10, 10, 10 , 30);
-    brazo_der = new Pieza (0, 0 , -10, 10, 10, 30);        
+    brazo_der = new Pieza (0, 0 , -10, 10, 10, 30);
+    posicion = new PVector(x, y, z);
+    rotacion = new PVector(0, 0, theta);
   }
   
-  void piernaIzq() {
+  void piernaIzq(float theta) {
     pushMatrix();
       translate(5, 0, 30);
+      rotateX(theta);
       pierna_izq.Dibujar();
     popMatrix();
   }
   
-  void piernaDer() {
+  void piernaDer(float theta) {
     pushMatrix();
       translate(-5, 0, 30);
+      rotateX(theta);
       pierna_der.Dibujar();
     popMatrix();
   }
@@ -43,28 +48,36 @@ class Steve {
     popMatrix();
   }
   
-  void brazoIzq() {
+  void brazoIzq(float theta) {
     pushMatrix();
       translate(15, 0, 55);
+      rotateX(theta);
       brazo_izq.Dibujar();
     popMatrix();
-  
   }
   
-  void brazoDer() {
+  void brazoDer(float theta) {
     pushMatrix();
       translate(-15, 0, 55);
+      rotateX(theta);
       brazo_der.Dibujar();
     popMatrix();
   }
   
   void Dibujar () {
-    piernaIzq();
-    piernaDer();  
-    tronco();
-    cabeza();
-    brazoIzq();
-    brazoDer();
+    float t = millis () / 1000.0;
+    float theta = 45 * cos (2*PI*t);
+    float alpha = 45 * sin (2*PI*t);
+    pushMatrix();
+      translate(posicion.x, posicion.y, posicion.z);
+      rotateZ(rotacion.z-radians(90));
+      piernaIzq(radians(theta));
+      piernaDer(radians(-theta));  
+      tronco();
+      cabeza();
+      brazoIzq(radians(alpha));
+      brazoDer(radians(-alpha));
+   popMatrix();
   }
 
 
